@@ -1,4 +1,5 @@
 require_relative "./lib/initSource"
+require_relative "./lib/products"
 
 class Main
   attr_reader :file_name
@@ -15,9 +16,7 @@ class Main
   end
 
   initial_products = InitSource.new(input_source: file_name).file_data
+  products = Products.new(initial_products).line_items
 
-  initial_products.each do |line|
-    puts line
-    # test line items
-  end
+  puts "------------------------------", products
 end
