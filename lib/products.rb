@@ -1,3 +1,5 @@
+require_relative "./calculator"
+
 class Products
   attr_accessor :raw_products, :products
 
@@ -11,7 +13,9 @@ class Products
       line = line.split(/\n+|\r+/).reject(&:empty?)
       parse_line(line)
     end
-    return @products
+    Calculator.new(products).calculate_tax
+
+    return products
   end
 
   def parse_line(line)
@@ -21,7 +25,6 @@ class Products
                 imported: item_imported(line),
                 tax_exempt: item_taxable(line) }
     @products << product
-    return @products
   end
 
   private
@@ -29,7 +32,7 @@ class Products
   def item_qty(line)
     item = line.to_s
     qty = item.scan(/[0-9]/).first.to_i
-    return qty
+    qty
   end
 
   def item_name(line)
@@ -48,6 +51,7 @@ class Products
   def item_imported(line)
     item = line.to_s
     imported = item.downcase.include?("imported")
+    imported
   end
 
   def item_taxable(line)

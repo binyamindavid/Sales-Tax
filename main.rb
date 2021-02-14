@@ -17,6 +17,4 @@ class Main
 
   initial_products = InitSource.new(input_source: file_name).file_data
   products = Products.new(initial_products).line_items
-
-  puts "------------------------------", products
 end
