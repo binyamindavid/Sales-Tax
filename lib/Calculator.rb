@@ -35,8 +35,8 @@ class Calculator
       add_to_total(total)
 
       @listing << "#{item[:qty]} x #{item[:name]} at #{"%.2f" % total}"
-      puts @listing
     end
+    puts @listing
   end
 
   def add_to_tax(tax)
