@@ -1,5 +1,5 @@
-require_relative "./lib/initSource"
-require_relative "./lib/products"
+require_relative "./lib/InitSource"
+require_relative "./lib/Product"
 
 class Main
   attr_reader :file_name
@@ -16,5 +16,5 @@ class Main
   end
 
   initial_products = InitSource.new(input_source: file_name).file_data
-  products = Products.new(initial_products).line_items
+  products = Product.new(initial_products).line_items
 end

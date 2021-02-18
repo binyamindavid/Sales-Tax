@@ -1,4 +1,4 @@
-require_relative "./taxes"
+require_relative "./Tax"
 
 class Calculator
   attr_reader :line_items
@@ -25,8 +25,8 @@ class Calculator
       total_taxes = 0
       total = 0
 
-      basic_tax = Taxes.new(item).basic_tax
-      import_tax = Taxes.new(item).import_tax
+      basic_tax = Tax.new(item).basic_tax
+      import_tax = Tax.new(item).import_tax
 
       total_taxes += (basic_tax + import_tax).to_f
       total += (total_taxes + item[:price]).round(2)
