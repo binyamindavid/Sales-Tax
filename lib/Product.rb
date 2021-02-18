@@ -1,6 +1,6 @@
-require_relative "./calculator"
+require_relative "./Calculator"
 
-class Products
+class Product
   attr_accessor :raw_products, :products
 
   def initialize(raw_products)

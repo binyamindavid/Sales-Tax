@@ -1,4 +1,4 @@
-require_relative "../../lib/initSource"
+require_relative "../../lib/InitSource"
 
 RSpec.describe InitSource do
   context "file_data" do
